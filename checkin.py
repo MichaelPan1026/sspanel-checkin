@@ -1,5 +1,6 @@
 import sys
 import requests
+from os import getenv
 
 username = getenv('USERNAME')
 password = getenv('PASSWORD')
