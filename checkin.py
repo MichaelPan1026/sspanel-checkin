@@ -28,13 +28,7 @@ CheckHeaders = {
     'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.82 Safari/537.36 Edg/93.0.961.52'
     }
 rCheck = session.post(url = CheckUrl, headers = CheckHeaders)
-str = rCheck.content.decode('utf-8').split("\"")[5].encode('utf8').decode('unicode_escape')
+str = rCheck.content
+str1 = rCheck.text
 print(str)
-TelegramPush = 'https://api.telegram.org/bot' + BOTTOKEN + '/sendMessage?chat_id=' + TGCHATID + '&text=' + str
-rPush = requests.get(TelegramPush)
-if rPush.status_code == 200 :
-    print('推送成功')
-elif rPush.status_code == 400 :
-    print('CHATID 填写有误')
-else :
-    print('推送失败，未知错误')
+print(str1)
